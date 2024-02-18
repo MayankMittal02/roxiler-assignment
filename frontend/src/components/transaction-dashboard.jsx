@@ -22,7 +22,7 @@ const App = () => {
   ];
 
   useEffect(() => {
-    const apiUrl = "http://localhost:3001/getData";
+    const apiUrl = "/getData";
 
     const fetchAndDisplayTransactions = async () => {
       try {

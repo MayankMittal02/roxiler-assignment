@@ -36,7 +36,7 @@ const GetGraphs = () => {
   ];
 
   useEffect(() => {
-    const apiUrl = `http://localhost:5000/getgraphs/getbargraph?month=March`;
+    const apiUrl = `/getgraphs/getbargraph?month=March`;
 
     const fetchAndDisplayChart = async () => {
       try {
@@ -51,7 +51,7 @@ const GetGraphs = () => {
     fetchAndDisplayChart();
   }, []);
 
-  const url = "http://localhost:5000/";
+  const url = "";
   const API = axios.create({ baseURL: url });
   const handleSearch = async () => {
     let API_URI = `/getgraphs`

@@ -39,7 +39,7 @@ function ShowData() {
   ];
 
   useEffect(() => {
-    const apiUrl = `http://localhost:5000/getproducts?month=March`;
+    const apiUrl = `/getproducts?month=March`;
 
     const fetchAndDisplayTransactions = async () => {
       try {
@@ -55,7 +55,7 @@ function ShowData() {
   }, []);
 
 
-  const url = 'http://localhost:5000';
+  const url = '';
   const API = axios.create({ baseURL: url });
   const handleSearch = async () => {
     setCurrentPage(1)

@@ -1,6 +1,8 @@
 require( "dotenv" ).config();
 const express = require('express');
 // const fetch = require('node-fetch');
+const path = require("path");
+
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -19,9 +21,14 @@ app.use('/getproducts',products)
 app.use('/getgraphs' , graphs)
 app.use('/initialize-database' , initializeDatabase)
 app.use(errorHandlerMiddleware)
-app.all('*', function (req, res) {
-    res.send("not found");
-})
+
+
+app.use(express.static(path.join(__dirname, "./build")));
+
+app.use("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./build/index.html"));
+});
+
 
 mongoose.connect(process.env.CONNECTION_URI).then(() => {
     console.log('App connected to database');

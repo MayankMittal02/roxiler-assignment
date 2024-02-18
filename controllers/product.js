@@ -168,9 +168,9 @@ const getPieGraph = asyncWrapper(async (req, res, next) => {
 // combined API for all graphs
 const getAllGraph = asyncWrapper(async (req, res, next) => {
     const { month } = req.query
-    const statisticsAPIResponse = await fetch(`http://localhost:5000/getgraphs/getStatistics?month=${month}`)
-    const barChartAPIResponse = await fetch(`http://localhost:5000/getgraphs/getbargraph?month=${month}`)
-    const pieChartAPIResponse = await fetch(`http://localhost:5000/getgraphs/getpiegraph?month=${month}`)
+    const statisticsAPIResponse = await fetch(`/getgraphs/getStatistics?month=${month}`)
+    const barChartAPIResponse = await fetch(`/getgraphs/getbargraph?month=${month}`)
+    const pieChartAPIResponse = await fetch(`/getgraphs/getpiegraph?month=${month}`)
 
     const [statisticsData, barChartData, pieChartData] = await Promise.all([
         statisticsAPIResponse.json(),
